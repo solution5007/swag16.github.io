@@ -1,0 +1,119 @@
+:root {
+    --text-color: #000000;
+    --bg-color: #f8f8f8; /* Светло-серый фон страницы */
+    --nav-bg: #e0e0e0; /* Серый фон навигации */
+    --button-bg: #d4e6f1; /* Светло-голубой фон кнопки */
+    --header-bg: #e8e8e8; /* Светло-серый фон заголовка */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-color: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    background-color: var(--header-bg);
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.nav-container {
+    background-color: var(--nav-bg);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 600px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--hover-color);
+}
+
+.button-container {
+    background-color: var(--button-bg);
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.planner-button {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: lowercase;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 36px;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .header, .nav-container, .button-container {
+        padding: 15px 20px;
+    }
+    
+    .button-container {
+        max-width: 100%;
+    }
+}
