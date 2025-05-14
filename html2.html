@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Планировщик задач</title>
+    <link rel="stylesheet" href="message.css">
+</head>
+<body>
+    <!-- Страница приветствия -->
+    <div id="welcome-page" class="page active">
+        <button id="start-planner" class="start-button">Начать планирование</button>
+    </div>
+
+    <!-- Страница планировщика -->
+    <div id="planner-page" class="page">
+        <h1>Мой Планировщик</h1>
+
+        <div id="task-container" class="tasks-wrapper">
+            <!-- Задачи будут добавляться здесь -->
+        </div>
+
+        <div class="add-task-container">
+            <button id="add-task" class="add-task-btn">Добавить ещё задачу</button>
+        </div>
+
+        <div id="premium-section" class="premium-section">
+            <p>Вы достигли лимита бесплатных задач</p>
+            <button id="buy-premium" class="premium-btn">Купить премиум</button>
+            <div id="premium-details" class="premium-details"></div>
+        </div>
+    </div>
+
+    <script src="message.js"></script>
+</body>
+</html>
