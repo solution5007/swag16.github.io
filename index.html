@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Poiret+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Планировщик_название</title>
+    <title>Сважка</title>
     <link rel="stylesheet" href="start.css">
     <script></script>
 </head>
@@ -15,15 +15,23 @@
         <p>Сважка</p>
     </div>
     <div class = 'navi'>
-        <button class = 'navi_tool'><a class="link" href=#>О проекте</a></button>
-        <button class = 'navi_tool'><a class="link" href=#>Демонстрация</a></button>
-        <button class = 'navi_tool'><a class="link" href=#>Контакты</a></button>
+        <form action="#description">
+        <button class = 'navi_tool'><a class="link" href="#description">О проекте</a></button>
+        </form>
+        <form action="#demonstration">
+        <button class = 'navi_tool'><a class="link" href="#demonstration">Демонстрация</a></button>
+        </form>
+        <form action="#contact">
+        <button class = 'navi_tool'><a class="link" href="#contact">Контакты</a></button>
+        </form>
 
     </div>
-    <button class = 'main_button'><a class = 'link' href="swaggggg.html">К ПЛАНИРОВЩИКУ</a></button>
+    <form action="http://localhost:63342/algogit/swaggggg.html?_ijt=u6c7adb63uvk3o5s9igokrgcgj&_ij_reload=RELOAD_ON_SAVE">
+    <button class = 'main_button'><a class = 'link' href="http://localhost:63342/algogit/swaggggg.html?_ijt=u6c7adb63uvk3o5s9igokrgcgj&_ij_reload=RELOAD_ON_SAVE">К ПЛАНИРОВЩИКУ</a></button>
+    </form>
 </header>
 <main>
-    <description>
+    <description id = 'description'>
         <div class = "title">
             Сделай свой день продуктивным
         </div>
@@ -41,12 +49,12 @@
             </p>
         </div>
 
-        <table>
+        <table id =  'demonstration'>
             <tr>
                 <td>
                     <div class = "text-main">
-                        <h1> ЗАГОЛОВОК </h1>
-                        <p> Описание функции на картинке</p>
+                        <h1> Кнопка "Сохранить" </h1>
+                        <p> Вы можете СОХРАНИТЬ свою заметку</p>
                     </div>
                 </td>
                 <td>
@@ -59,16 +67,16 @@
                 </td>
                 <td>
                     <div class = "text-main">
-                        <h1> ЗАГОЛОВОК </h1>
-                        <p> Описание функции на картинке</p>
+                        <h1> Кнопка "Редактировать" </h1>
+                        <p> Вы можете РЕДАКТИРОВАТЬ заметку</p>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class = "text-main">
-                        <h1> ЗАГОЛОВОК </h1>
-                        <p> Описание функции на картинке</p>
+                        <h1> Кнопка "Удалить" </h1>
+                        <p> Вы можете УДАЛИТЬ заметку</p>
                     </div>
                 </td>
                 <td>
@@ -79,7 +87,7 @@
     </description>
 
 </main>
-<footer>
+<footer id = 'contact'>
     <div class = "text_bottom_left">
         <div>
             Контакты:
