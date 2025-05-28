@@ -32,7 +32,7 @@ header {
 }
 
 .navi {
-    width: 50vw;
+    width: 30vw;
     height: 10vh;
     background-color: #b3b3b3;
     border-radius: 15px;
@@ -44,7 +44,7 @@ header {
 
 
 .navi_tool {
-    width: 15vw;
+    width: 8vw;
     height: 5vh;
     font-size: 20px;
     font-family: "Poiret One", sans-serif, monospace;
@@ -68,7 +68,7 @@ header {
 }
 
 .main_button {
-    width: 30vw;
+    width: 15vw;
     height: 10vh;
     font-size: 25px;
     font-family: "Poiret One", sans-serif, monospace;
@@ -169,4 +169,94 @@ footer {
     color: black;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width: 768px) {
+    .name {
+        font-size: 50px;
+        margin-top: 5vh;
+    }
+    
+    .navi {
+        width: 80vw;
+        height: 8vh;
+        margin-top: 2vh;
+    }
+    
+    .navi_tool {
+        width: 20vw;
+        height: 6vh;
+        font-size: 14px;
+    }
+    
+    .main_button {
+        width: 50vw;
+        height: 8vh;
+        font-size: 18px;
+        margin-top: 15vh;
+    }
+    
+    .title {
+        font-size: 30px;
+    }
+    
+    .text-description, .text-main {
+        font-size: 18px;
+    }
+    
+    footer {
+        height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .text_bottom_left {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navi {
+        width: 50vw;
+    }
+    
+    .navi_tool {
+        width: 12vw;
+        font-size: 16px;
+    }
+    
+    .main_button {
+        width: 25vw;
+        font-size: 20px;
+    }
+    
+    .title {
+        font-size: 40px;
+    }
+    
+    .text-description, .text-main {
+        font-size: 24px;
+    }
+    
+    table {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .image {
+        width: 80vw;
+        height: auto;
+    }
+    
+    tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5vh;
+    }
+    
+    td {
+        width: 100%;
+    }
 }
