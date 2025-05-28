@@ -32,7 +32,7 @@ header {
 }
 
 .navi {
-    width: 30vw;
+    width: 50vw;
     height: 10vh;
     background-color: #b3b3b3;
     border-radius: 15px;
@@ -44,7 +44,7 @@ header {
 
 
 .navi_tool {
-    width: 8vw;
+    width: 14vw;
     height: 5vh;
     font-size: 20px;
     font-family: "Poiret One", sans-serif, monospace;
@@ -68,7 +68,7 @@ header {
 }
 
 .main_button {
-    width: 15vw;
+    width: 30vw;
     height: 10vh;
     font-size: 25px;
     font-family: "Poiret One", sans-serif, monospace;
