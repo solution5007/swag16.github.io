@@ -143,6 +143,37 @@
             background: #d35400;
         }
         
+        /* Стили для изображений */
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .image-upload {
+            margin: 15px 0;
+        }
+        
+        .image-upload-label {
+            display: inline-block;
+            padding: 8px 12px;
+            background: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .image-upload-label:hover {
+            background: #2980b9;
+        }
+        
+        #image-input {
+            display: none;
+        }
+        
         /* Темная тема */
         .dark-theme {
             background-color: #121212;
@@ -175,6 +206,14 @@
             color: #64b5f6;
         }
         
+        .dark-theme .image-upload-label {
+            background: #64b5f6;
+        }
+        
+        .dark-theme .image-upload-label:hover {
+            background: #4285f4;
+        }
+        
         /* Анимация переключения темы */
         @keyframes themeSwitch {
             0% { opacity: 1; }
@@ -205,6 +244,11 @@
                     <label for="note-content">Содержание</label>
                     <textarea id="note-content" required></textarea>
                 </div>
+                <div class="image-upload">
+                    <label class="image-upload-label" for="image-input">Добавить изображение</label>
+                    <input type="file" id="image-input" accept="image/*">
+                    <div id="image-preview-container"></div>
+                </div>
                 <button type="submit">Сохранить</button>
             </form>
         </div>
@@ -222,9 +266,31 @@
             const themeToggle = document.getElementById('theme-toggle');
             const mainTitle = document.getElementById('main-title');
             const container = document.querySelector('.container');
+            const imageInput = document.getElementById('image-input');
+            const imagePreviewContainer = document.getElementById('image-preview-container');
             
             // Загрузка заметок из localStorage
             let notes = JSON.parse(localStorage.getItem('notes')) || [];
+            
+            // Текущее изображение для предпросмотра
+            let currentImage = null;
+            
+            // Обработчик загрузки изображения
+            imageInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        imagePreviewContainer.innerHTML = '';
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.className = 'image-preview';
+                        imagePreviewContainer.appendChild(img);
+                        currentImage = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
             
             // Отображение заметок
             function displayNotes() {
@@ -232,8 +298,15 @@
                 notes.forEach((note, index) => {
                     const noteElement = document.createElement('div');
                     noteElement.className = 'note';
+                    
+                    let imageContent = '';
+                    if (note.image) {
+                        imageContent = `<img src="${note.image}" class="image-preview" alt="Прикрепленное изображение">`;
+                    }
+                    
                     noteElement.innerHTML = `
                         <h3>${note.title}</h3>
+                        ${imageContent}
                         <p>${note.content}</p>
                         <div class="note-actions">
                             <button class="edit-btn" data-id="${index}">Редактировать</button>
@@ -260,10 +333,21 @@
                 const title = document.getElementById('note-title').value;
                 const content = document.getElementById('note-content').value;
                 
-                notes.push({ title, content });
+                notes.push({ 
+                    title, 
+                    content, 
+                    image: currentImage || null,
+                    createdAt: new Date().toISOString()
+                });
+                
                 localStorage.setItem('notes', JSON.stringify(notes));
                 
+                // Сброс формы
                 noteForm.reset();
+                imagePreviewContainer.innerHTML = '';
+                currentImage = null;
+                imageInput.value = '';
+                
                 displayNotes();
             });
             
@@ -282,6 +366,18 @@
                 
                 document.getElementById('note-title').value = note.title;
                 document.getElementById('note-content').value = note.content;
+                
+                // Показываем изображение при редактировании
+                imagePreviewContainer.innerHTML = '';
+                if (note.image) {
+                    const img = document.createElement('img');
+                    img.src = note.image;
+                    img.className = 'image-preview';
+                    imagePreviewContainer.appendChild(img);
+                    currentImage = note.image;
+                } else {
+                    currentImage = null;
+                }
                 
                 notes.splice(id, 1);
                 localStorage.setItem('notes', JSON.stringify(notes));
